@@ -1,179 +1,1133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Co-op Work Term Report – Fall 2025</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Co-op Work Term Report | Prateek Hakim Khatri</title>
+
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 40px;
-      line-height: 1.7;
-      color: #222;
-      background-color: #ffffff;
+    :root {
+      --navy: #17365d;
+      --blue: #245b8f;
+      --light-blue: #edf4f9;
+      --text: #252525;
+      --muted: #66717d;
+      --border: #d9e1e8;
+      --background: #f7f9fb;
+      --white: #ffffff;
     }
 
-    h1 {
-      color: #003366;
-      border-bottom: 3px solid #003366;
-      padding-bottom: 10px;
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+
+    header {
+      background: var(--navy);
+      color: white;
+      padding: 70px 25px 60px;
+    }
+
+    .header-container {
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      opacity: 0.8;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.8rem;
+      line-height: 1.15;
+    }
+
+    header .subtitle {
+      margin: 0;
+      max-width: 760px;
+      font-size: 1.15rem;
+      opacity: 0.9;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-top: 30px;
+      font-size: 0.95rem;
+    }
+
+    .details strong {
+      color: white;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 13px 25px;
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* MAIN CONTENT */
+
+    main {
+      max-width: 1050px;
+      margin: auto;
+      padding: 55px 25px 80px;
+    }
+
+    section {
+      background: white;
+      padding: 40px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
     }
 
     h2 {
-      color: #003366;
-      margin-top: 40px;
+      color: var(--navy);
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--light-blue);
+      padding-bottom: 12px;
+    }
+
+    h3 {
+      color: var(--blue);
+      font-size: 1.25rem;
+      margin-top: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 18px;
     }
 
     ul {
-      margin-left: 20px;
+      padding-left: 23px;
     }
 
+    li {
+      margin-bottom: 9px;
+    }
+
+    /* INTRO */
+
+    .intro-highlight {
+      font-size: 1.08rem;
+      color: #333;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      background: var(--light-blue);
+      color: var(--navy);
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: bold;
+    }
+
+    /* PROJECT CARDS */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 22px;
+      background: #fbfcfd;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+    }
+
+    .project-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: #4e5964;
+    }
+
+    /* PHOTOS */
+
+    .photo-block {
+      margin: 30px 0;
+    }
+
+    .photo-block img {
+      display: block;
+      width: 100%;
+      max-height: 580px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .photo-block.portrait img {
+      max-width: 430px;
+      margin: auto;
+      object-fit: contain;
+      background: #f4f4f4;
+    }
+
+    figcaption {
+      text-align: center;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.87rem;
+      font-style: italic;
+    }
+
+    /* RECOGNITION */
+
+    .recognition {
+      background: linear-gradient(
+        135deg,
+        #17365d 0%,
+        #245b8f 100%
+      );
+      color: white;
+      border: none;
+    }
+
+    .recognition h2 {
+      color: white;
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    .recognition p {
+      color: rgba(255,255,255,0.94);
+    }
+
+    .recognition figure {
+      background: white;
+      padding: 8px;
+      border-radius: 9px;
+      margin: 30px 0;
+    }
+
+    .recognition figure img {
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+    }
+
+    .recognition figcaption {
+      color: #5f6973;
+      padding-bottom: 4px;
+    }
+
+    /* REFLECTION */
+
+    .reflection-box {
+      margin: 30px 0;
+      padding: 25px 28px;
+      background: var(--light-blue);
+      border-left: 5px solid var(--blue);
+      font-size: 1.08rem;
+    }
+
+    /* FOOTER */
+
     footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #555;
-      border-top: 1px solid #ccc;
-      padding-top: 20px;
+      background: #122c49;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 4px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      header {
+        padding-top: 50px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 27px 22px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .details {
+        display: block;
+      }
+
+      .details div {
+        margin-bottom: 7px;
+      }
     }
   </style>
 </head>
 
+
 <body>
 
-  <h1>Co-op Work Term Report – Fall 2025</h1>
+<header>
+  <div class="header-container">
 
-  <p>
-    <strong>Name:</strong> Prateek Hakim Khatri<br>
-    <strong>Program:</strong> Bachelor of Computing (Co-op)<br>
-    <strong>Work Term:</strong> Fall 2025<br>
-    <strong>Role:</strong> Data Analyst Co-op Student
-  </p>
+    <div class="eyebrow">
+      Bachelor of Computing • Co-op Portfolio
+    </div>
+
+    <h1>Co-op Work Term Report</h1>
+
+    <p class="subtitle">
+      Data Analytics, Data Governance, Open Data and Digital Services
+    </p>
+
+    <div class="details">
+      <div><strong>Name:</strong> Prateek Hakim Khatri</div>
+      <div><strong>Role:</strong> Data Analyst Co-op Student</div>
+      <div><strong>Employer:</strong> MPBSDP – Ontario Public Service</div>
+      <div><strong>Location:</strong> Toronto, Ontario</div>
+    </div>
+
+  </div>
+</header>
+
+
+<nav>
+  <div class="nav-container">
+    <a href="#introduction">Introduction</a>
+    <a href="#employer">Employer</a>
+    <a href="#goals">Goals</a>
+    <a href="#odc">ODC</a>
+    <a href="#ckan">CKAN</a>
+    <a href="#artifacts">Artifacts</a>
+    <a href="#analytics">Analytics</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#reflection">Reflection</a>
+  </div>
+</nav>
+
+
+<main>
+
+<section id="introduction">
 
   <h2>Abstract / Introduction</h2>
-  <p>
-    During the Fall 2025 co-op work term, I worked as a Data Analyst Co-op
-    Student supporting data governance, public data access, and analytical
-    initiatives. My role focused on maintaining and improving datasets within
-    the Ontario Data Catalogue, responding to public user inquiries, and
-    supporting validation, documentation, and reporting processes. This report
-    outlines my responsibilities, learning outcomes, key contributions, and
-    reflections from the work term.
+
+  <p class="intro-highlight">
+    During my co-op experience with the Ministry of Public and Business
+    Service Delivery and Procurement, I worked as a Data Analyst Co-op
+    Student supporting data governance, public data access, analytics,
+    and technical initiatives.
   </p>
+
+  <p>
+    My experience provided an opportunity to work with the Ontario Data
+    Catalogue and understand how government data is maintained, validated,
+    documented, analyzed, and made accessible to users.
+  </p>
+
+  <p>
+    My responsibilities ranged from responding to user questions and
+    validating datasets to developing analytical dashboards, maintaining
+    a catalogue of data standards and artifacts, configuring a CKAN
+    testing environment, and contributing to research and modernization
+    initiatives.
+  </p>
+
+  <p>
+    As my work term progressed, my responsibilities expanded from learning
+    and supporting existing operational processes to contributing to larger
+    analytical, technical, and research projects. This progression
+    strengthened my technical abilities while also teaching me how
+    computing and data work connect with user needs, organizational
+    priorities, and public service.
+  </p>
+
+</section>
+
+
+<section id="employer">
 
   <h2>Employer Overview</h2>
-   <p>
-    During my Fall 2025 co‑op work term, I worked at the Ministry of Public and Business
-    Service Delivery and Procurement (MPBSDP), part of the Ontario Public Service, located at
-    595 Bay Street (Atrium on Bay) in downtown Toronto. MPBSDP supports ministries, agencies,
-    and the broader public sector by delivering enterprise services such as procurement,
-    digital platforms, consumer protection, and business services. The ministry also provides
-    leadership in data and digital governance, including establishing data standards and
-    supporting public access to government information through platforms such as the Ontario
-    Data Catalogue, which closely aligned with my role supporting data maintenance, validation,
-    and user‑focused data improvements.
-  </p>
-  
-  
-  <h2>Job Description</h2>
+
   <p>
-    As a Data Analyst Co-op Student, I supported both operational and technical
-    workflows related to public data publishing and governance.
+    I worked at the <strong>Ministry of Public and Business Service
+    Delivery and Procurement (MPBSDP)</strong>, part of the Ontario Public
+    Service, at 595 Bay Street in downtown Toronto.
   </p>
+
+  <p>
+    The ministry supports government ministries, agencies, and the broader
+    public sector through enterprise services including digital platforms,
+    procurement, business services, consumer services, and information
+    management.
+  </p>
+
+  <p>
+    My work was closely connected to government data and digital services,
+    particularly the <strong>Ontario Data Catalogue (ODC)</strong>.
+    Working in this environment allowed me to understand how computing,
+    data governance, digital platforms, public service, and user needs
+    intersect within a large organization.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>My Role</h2>
+
+  <p>
+    As a Data Analyst Co-op Student, I supported a combination of
+    operational, analytical, and technical work.
+  </p>
+
   <ul>
-    <li>Supported scheduled dataset publication and updates in CKAN</li>
-    <li>Reviewed dataset metadata and validation results</li>
-    <li>Responded to user questions and routed requests through Jira</li>
-    <li>Assisted with data standards and artifacts cataloguing</li>
-    <li>Explored reporting and dashboard development using Power BI</li>
-    <li>Configured a local CKAN environment using a Linux virtual machine</li>
+    <li>
+      Supported dataset publication, updates, and validation within the
+      Ontario Data Catalogue
+    </li>
+
+    <li>
+      Reviewed metadata and identified data-quality issues
+    </li>
+
+    <li>
+      Responded to and tracked user questions through Jira
+    </li>
+
+    <li>
+      Maintained and improved documentation for data standards and artifacts
+    </li>
+
+    <li>
+      Developed and explored Power BI dashboards and analytical reporting
+    </li>
+
+    <li>
+      Investigated patterns and trends within ODC requests
+    </li>
+
+    <li>
+      Configured a local CKAN environment using a Linux virtual machine
+    </li>
+
+    <li>
+      Supported research, modernization, and product-related initiatives
+    </li>
   </ul>
 
+  <div class="skills">
+    <span class="skill">Power BI</span>
+    <span class="skill">CKAN</span>
+    <span class="skill">Linux</span>
+    <span class="skill">Excel</span>
+    <span class="skill">Jira</span>
+    <span class="skill">Data Validation</span>
+    <span class="skill">Data Governance</span>
+    <span class="skill">AI-Assisted Tools</span>
+  </div>
+
+</section>
+
+
+<section id="goals">
+
   <h2>Goals and Learning Outcomes</h2>
+
   <p>
-    At the start of the work term, my goals included developing a strong
-    understanding of data governance practices, gaining hands-on experience
-    with CKAN and dataset validation, improving reporting skills in Power BI,
-    and strengthening professional communication skills.
-  </p>
-  <p>
-    Throughout the work term, I successfully achieved most of these goals by
-    participating in dataset maintenance activities, user inquiry workflows,
-    and technical exploration projects. While some reporting initiatives were
-    limited by system constraints, the exploration process provided valuable
-    insight into real-world technical limitations and solution design.
+    At the beginning of my co-op experience, one of my main goals was to
+    develop a stronger understanding of <strong>data governance and how
+    data systems operate in a real organizational environment</strong>.
   </p>
 
-  <h2>Work Term Experience and Key Contributions</h2>
   <p>
-    A significant portion of my role involved supporting the Ontario Data
-    Catalogue by validating datasets, identifying quality issues, and
-    coordinating updates. I gained practical experience understanding how
-    datasets are structured, published, and maintained in a production
-    environment.
-  </p>
-  <p>
-    I also supported responses to public user questions by reviewing incoming
-    requests, determining next steps, and routing issues to appropriate data
-    leads using Jira. This work emphasized the importance of accurate data,
-    clearly written metadata, and timely communication.
+    I also wanted practical experience with technologies such as CKAN,
+    Power BI, Excel, Jira, Linux, and data-validation tools while
+    strengthening my analytical problem-solving and professional
+    communication skills.
   </p>
 
-  <h2>Standards and Artifacts Catalogue Project</h2>
   <p>
-    I contributed to a project focused on consolidating organizational data
-    standards and artifacts into a structured catalogue. My contributions
-    included organizing standards into a consistent format, validating links
-    and references, identifying inconsistencies, and supporting the generation
-    of clear descriptions. This work established a foundation for improved
-    documentation and future dashboard access.
+    Another important goal was understanding the relationship between
+    technical work and the people who ultimately depend on that work.
+    Issues with metadata, dataset accuracy, documentation, or publishing
+    processes could directly affect someone attempting to access
+    government information.
   </p>
 
-  <h2>Reporting and Dashboard Development</h2>
   <p>
-    Using the standards catalogue as a data source, I supported the planning
-    and early development of a Power BI dashboard designed to improve discovery
-    and navigation of data standards. I gained exposure to data modeling,
-    layout standards, and business requirements for internal dashboards.
+    As my responsibilities expanded, my learning goals developed as well.
+    I became increasingly interested in identifying patterns across
+    requests and datasets rather than only resolving individual issues.
+    This led to greater involvement in dashboarding, user-question
+    analysis, research, modernization, and other analytical projects.
   </p>
+
+</section>
+
+
+<section id="odc">
+
+  <h2>Ontario Data Catalogue</h2>
+
+  <p>
+    A significant part of my co-op experience involved supporting the
+    <strong>Ontario Data Catalogue</strong>.
+  </p>
+
+  <p>
+    I learned how datasets were structured, published, updated, and
+    maintained, including metadata, update schedules, dataset validation
+    expectations, and how public user questions could relate to dataset
+    accuracy and updates.
+  </p>
+
+  <p>
+    I also developed an understanding of the collaboration required to
+    maintain the catalogue. A single dataset issue could involve a public
+    user, the data lead responsible for the dataset, and internal teams
+    responsible for supporting the platform.
+  </p>
+
+  <h3>Responding to User Questions</h3>
+
+  <p>
+    One of my recurring responsibilities was supporting questions submitted
+    by users of the Ontario Data Catalogue.
+  </p>
+
+  <p>
+    I reviewed incoming questions to understand the issue and determine the
+    appropriate next step. Depending on the request, this could involve
+    seeking clarification, requesting a dataset update or correction, or
+    routing the issue to the appropriate data lead through Jira.
+  </p>
+
+  <p>
+    I also followed up on outstanding requests to help support timely
+    resolution and maintained clear and professional communication
+    throughout the request process.
+  </p>
+
+  <p>
+    This experience showed me that <strong>data quality is ultimately
+    connected to the user experience</strong>. Even when a dataset
+    technically exists, unclear metadata, outdated information, or
+    inconsistencies can significantly affect its usefulness.
+  </p>
+
+
+  <h3>Dataset Updates and Validation</h3>
+
+  <p>
+    I supported scheduled dataset updates and validated CSV datasets
+    against defined data-quality and validation requirements.
+  </p>
+
+  <p>
+    This involved identifying errors or inconsistencies, reporting issues
+    to data leads, and supporting coordination so datasets met publishing
+    standards.
+  </p>
+
+  <p>
+    The work strengthened my attention to detail and taught me to approach
+    data quality systematically rather than simply checking whether
+    information appeared correct.
+  </p>
+
+</section>
+
+
+<section id="ckan">
+
+  <h2>CKAN Technical Environment</h2>
+
+  <p>
+    One of the more technical parts of my experience involved configuring
+    a <strong>local CKAN 2.9 environment</strong> to support testing,
+    validation, and product-side work.
+  </p>
+
+  <p>
+    I configured a Linux-based virtual machine using
+    <strong>Ubuntu 20.04.4</strong> and worked with the supporting services
+    and dependencies required for CKAN to operate correctly.
+  </p>
+
+  <p>
+    I implemented required configuration changes to enable dataset
+    validation and verified the environment through service checks and
+    troubleshooting.
+  </p>
+
+  <p>
+    This project strengthened my confidence working with unfamiliar
+    technical environments. When something did not work as expected,
+    I had to investigate the problem, understand the error, and work
+    systematically through potential solutions.
+  </p>
+
+</section>
+
+
+<section id="artifacts">
+
+  <h2>Standards and Data Artifacts Catalogue</h2>
+
+  <p>
+    Another major project involved improving how organizational
+    <strong>data standards and artifacts</strong> were documented and
+    accessed.
+  </p>
+
+  <p>
+    I helped consolidate standards and artifacts into a structured
+    Excel-based catalogue. This included organizing information into
+    consistent fields, validating hyperlinks to source documents,
+    reviewing entries for missing or inconsistent information, identifying
+    duplicated information, and supporting overall data quality.
+  </p>
+
+  <p>
+    The goal was not simply to create a spreadsheet. The project established
+    a structured and reliable source of information that could support
+    documentation and future discovery and dashboarding capabilities.
+  </p>
+
+
+  <h3>AI-Assisted Description Development</h3>
+
+  <p>
+    I used Excel alongside AI-assisted tools to help extract key information
+    and develop concise descriptions using a common format and style.
+    I then reviewed and refined those descriptions to improve clarity and
+    consistency.
+  </p>
+
+  <p>
+    This gave me practical experience using AI as a
+    <strong>supporting productivity tool rather than treating its output as
+    a finished product</strong>. Human review remained important for
+    accuracy, context, and quality control.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>Power BI Dashboard Development</h2>
+
+  <p>
+    Using the structured Excel catalogue as a data source, I contributed
+    to developing a <strong>Power BI dashboard for standards and
+    artifacts</strong>.
+  </p>
+
+  <p>
+    The dashboard was intended to provide a centralized and searchable
+    view of standards and artifacts and support easier discovery and
+    navigation across teams.
+  </p>
+
+  <p>
+    Development followed documented business requirements and an approved
+    Power BI layout, with functionality such as search, filtering, and
+    drill-through forming part of the planned discovery experience.
+  </p>
+
+  <p>
+    This project helped me understand that effective dashboard development
+    involves much more than creating visualizations. The underlying data
+    must first be organized correctly, and the dashboard needs to solve an
+    actual user or business problem.
+  </p>
+
+</section>
+
+
+<section id="analytics">
+
+  <h2>ODC Ticket Tracking and User Question Analysis</h2>
+
+  <p>
+    As my understanding of the Ontario Data Catalogue developed, my
+    analytical work expanded beyond responding to individual requests.
+  </p>
+
+  <p>
+    I worked on <strong>ODC ticket-tracking analysis</strong> and explored
+    how Jira request information could provide better visibility into
+    catalogue activity.
+  </p>
+
+  <p>
+    I also conducted deeper analysis of user questions by examining trends
+    and patterns and exploring how requests could be classified within the
+    ODC ticket-tracking system.
+  </p>
+
+  <p>
+    Earlier technical exploration involved investigating how Jira and
+    API-based information could potentially support Power BI reporting.
+    This work also exposed technical limitations involving API access and
+    data availability.
+  </p>
+
+  <p>
+    This represented an important progression in my experience. Instead of
+    looking only at <strong>one user question at a time</strong>, I began
+    considering what a collection of user questions could reveal about the
+    platform and its users.
+  </p>
+
+</section>
+
+
+<section>
+
+  <h2>Additional Data Analysis and Modernization Projects</h2>
+
+  <p>
+    As my responsibilities expanded, I contributed to several additional
+    analytical, research, and product-focused initiatives.
+  </p>
+
+  <div class="project-grid">
+
+    <div class="project-card">
+      <h3>Restricted &amp; Unrestricted Dataset Analysis</h3>
+      <p>
+        Analytical work examining datasets within the Ontario Data
+        Catalogue environment.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>ODC Modernization</h3>
+      <p>
+        Contributed analytical work supporting modernization initiatives
+        related to the Ontario Data Catalogue.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>Jurisdictional Scan</h3>
+      <p>
+        Supported research examining open data catalogues across other
+        jurisdictions.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>Harvester History UI Investigation</h3>
+      <p>
+        Participated in investigation related to the Harvester History
+        user interface.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>Application Portfolio Management</h3>
+      <p>
+        Contributed to Application Portfolio Management dataset analysis.
+      </p>
+    </div>
+
+  </div>
+
+  <p style="margin-top: 28px;">
+    These projects broadened my experience beyond the daily operation of
+    the Ontario Data Catalogue and helped me understand how data analysis
+    can support research, product decisions, modernization, and broader
+    organizational priorities.
+  </p>
+
+</section>
+
+
+<section id="leadership">
 
   <h2>Leadership and Professional Development</h2>
+
   <p>
-    In addition to my technical responsibilities, I served as a United Way
-    Divisional Lead, supporting fundraising initiatives and engagement events.
-    This role strengthened my leadership, coordination, and communication
-    skills. I also completed First Aid certification and participated in
-    professional training related to artificial intelligence.
+    My co-op experience was not limited to technical responsibilities.
+    I also served as a <strong>Divisional Lead for United Way fundraising
+    activities</strong>.
   </p>
 
-  <h2>Lessons Learned</h2>
   <p>
-    This work term highlighted the importance of data governance, user-focused
-    quality, and cross-functional collaboration. I learned how structured data
-    and metadata impact real users, and how effective communication supports
-    successful data management initiatives.
+    I coordinated team members and supported the organization and operation
+    of fundraising events.
   </p>
+
+  <p>
+    One initiative involved organizing a VR roller-coaster experience as
+    an engagement activity. I helped coordinate the event, manage
+    participation flow and cash collection, and the initiative generated
+    approximately $100 in profit.
+  </p>
+
+  <p>
+    I also assisted in organizing a biryani sale as part of the broader
+    fundraising effort.
+  </p>
+
+  <!-- UNITED WAY PHOTO -->
+  <figure class="photo-block portrait">
+
+    <img
+      src="united-way.png"
+      alt="United Way fundraising and employee engagement activity">
+
+    <figcaption>
+      Supporting United Way fundraising and employee engagement initiatives.
+    </figcaption>
+
+  </figure>
+
+  <p>
+    This experience allowed me to develop leadership skills in a different
+    setting from my technical projects. It required organization,
+    communication, teamwork, and the ability to take responsibility for an
+    activity from planning through execution.
+  </p>
+
+  <p>
+    I also completed a <strong>two-day in-person First Aid
+    certification</strong> and participated in professional development
+    related to artificial intelligence.
+  </p>
+
+</section>
+
+
+<section id="recognition" class="recognition">
+
+  <h2>Recognition and Faces of the Ministry</h2>
+
+  <p>
+    One of the most meaningful highlights of my co-op experience was
+    receiving recognition for my contributions from the
+    <strong>Deputy Minister</strong>.
+  </p>
+
+  <p>
+    Having my work acknowledged at this level was an important moment in
+    my professional development. It demonstrated that the contributions I
+    was making as a co-op student were being recognized beyond my
+    immediate day-to-day responsibilities and team.
+  </p>
+
+  <!-- MINISTRY LEADERSHIP PHOTO -->
+  <figure>
+
+    <img
+      src="ministry-leadership.png"
+      alt="Conversation with ministry leadership">
+
+    <figcaption>
+      Connecting with ministry leadership during my co-op experience.
+    </figcaption>
+
+  </figure>
+
+  <p>
+    I was also selected to be featured in
+    <strong>Faces of the Ministry</strong>, an internal ministry article
+    highlighting employees and the positive work and contributions taking
+    place across the organization.
+  </p>
+
+  <p>
+    Being featured gave me an opportunity to reflect on my experience and
+    share some of the work and learning that had shaped my co-op journey.
+  </p>
+
+  <p>
+    The recognition reinforced an important lesson from my placement:
+    being a co-op student does not prevent someone from making a meaningful
+    contribution to a large organization.
+  </p>
+
+  <p>
+    Taking ownership of responsibilities, being willing to learn,
+    supporting others, and contributing beyond basic assigned tasks can
+    create an impact.
+  </p>
+
+</section>
+
+
+<section id="reflection">
+
+  <h2>Challenges and Lessons Learned</h2>
+
+  <p>
+    One of the most important lessons from this experience was learning
+    how to work when there is <strong>not always an obvious solution</strong>.
+  </p>
+
+  <p>
+    Technical limitations affected some of the reporting and API work I
+    explored. Dataset validation sometimes required identifying the source
+    of inconsistencies before they could be resolved.
+  </p>
+
+  <p>
+    Configuring CKAN required troubleshooting across multiple components,
+    while user questions sometimes required investigation before the
+    appropriate next step became clear.
+  </p>
+
+  <p>
+    These situations taught me to become more comfortable with ambiguity.
+    Instead of expecting an immediate answer, I learned to break problems
+    into smaller components, gather information, test possible approaches,
+    and communicate with people who had expertise in areas I was still
+    learning.
+  </p>
+
+  <p>
+    I also developed a stronger appreciation for the relationship between
+    <strong>data governance and user experience</strong>.
+  </p>
+
+  <p>
+    Metadata requirements, validation rules, documentation standards, and
+    structured fields may appear highly technical, but they ultimately
+    influence whether another person can find, understand, and use
+    information.
+  </p>
+
+
+  <h3>Reflection on My Development</h3>
+
+  <p>
+    Looking back at my experience, one of the biggest changes was the way
+    I approached problems.
+  </p>
+
+  <p>
+    At the beginning, much of my attention was focused on understanding
+    existing processes: how a dataset is updated, how a Jira request moves
+    through the system, how validation works, and how CKAN operates.
+  </p>
+
+  <p>
+    As I became more comfortable with these processes, I started thinking
+    more analytically about them.
+  </p>
+
+  <div class="reflection-box">
+
+    Instead of only asking
+    <strong>“How do I complete this task?”</strong>,
+    I increasingly began asking:
+
+    <br><br>
+
+    <strong>Why does this issue occur?</strong><br>
+
+    <strong>
+      Is there a pattern across multiple requests?
+    </strong><br>
+
+    <strong>
+      How could this information be measured or visualized?
+    </strong><br>
+
+    <strong>
+      Could this process be made easier for users?
+    </strong>
+
+  </div>
+
+  <p>
+    That shift from completing individual tasks toward understanding
+    systems, patterns, and opportunities for improvement was one of the
+    most valuable outcomes of my co-op experience.
+  </p>
+
+  <p>
+    I learned that technical ability is important, but successful work in
+    a large organization also depends on communication, collaboration,
+    adaptability, and understanding why the work matters to the people who
+    ultimately use it.
+  </p>
+
+</section>
+
+
+<section>
 
   <h2>Conclusion</h2>
+
   <p>
-    Overall, the Fall 2025 co-op work term was a valuable learning experience
-    that strengthened my technical, analytical, and professional skills. The
-    experience provided practical insight into public-sector data systems and
-    prepared me well for future co-op terms and a career in data analytics and
-    computing.
+    My co-op experience as a Data Analyst provided me with practical
+    exposure to <strong>data governance, analytics, open-data technologies,
+    reporting, technical troubleshooting, research, modernization, and
+    professional collaboration</strong>.
   </p>
+
+  <p>
+    Working with the Ontario Data Catalogue allowed me to see the
+    relationship between data and its users—from validating individual CSV
+    files and maintaining metadata to responding to user questions,
+    identifying broader patterns, and considering opportunities for
+    platform improvement.
+  </p>
+
+  <p>
+    Projects involving CKAN, Power BI, Jira, Excel, data standards and
+    artifacts, and analytical research allowed me to apply computing
+    concepts within a real organizational environment while continuously
+    developing new technical skills.
+  </p>
+
+  <p>
+    My responsibilities developed significantly throughout the experience.
+    I progressed from learning existing processes and supporting operational
+    activities to contributing to analytical dashboards, technical
+    environments, research, modernization initiatives, and broader
+    organizational projects.
+  </p>
+
+  <p>
+    Receiving recognition from ministry leadership and being featured in
+    <strong>Faces of the Ministry</strong> was particularly meaningful
+    because it provided an opportunity to reflect on that progression and
+    the contributions I had made throughout my placement.
+  </p>
+
+  <p>
+    Most importantly, this experience changed the way I think about data.
+  </p>
+
+  <p>
+    I now understand effective data management as more than simply storing
+    or analyzing information. It requires ensuring that information is
+    <strong>
+      accurate, understandable, discoverable, appropriately governed,
+      and useful to the people who depend on it
+    </strong>.
+  </p>
+
+</section>
+
+
+<section>
 
   <h2>Acknowledgements</h2>
+
   <p>
-    I would like to thank my supervisors, team members, and data leads for their
-    guidance, feedback, and support throughout the work term.
+    I would like to thank my supervisors, team members, data leads,
+    colleagues, and ministry leadership for their guidance, feedback,
+    encouragement, and support throughout my co-op experience.
   </p>
 
-  <footer>
-    <p>© 2025 Prateek Hakim Khatri – Co-op Work Term Report</p>
-  </footer>
+  <p>
+    Their willingness to answer questions, provide feedback, involve me in
+    different projects, and give me opportunities to develop professionally
+    played an important role in my experience.
+  </p>
+
+  <p>
+    I am grateful for the opportunity to contribute to the organization
+    while developing technical, analytical, communication, and leadership
+    skills that I will carry forward into future academic and professional
+    experiences.
+  </p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <p>
+    <strong>Prateek Hakim Khatri</strong>
+  </p>
+
+  <p>
+    Bachelor of Computing (Co-op) • University of Guelph
+  </p>
+
+  <p>
+    Co-op Work Term Portfolio
+  </p>
+
+</footer>
 
 </body>
 </html>
-``
